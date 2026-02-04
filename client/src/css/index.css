@@ -1,0 +1,220 @@
+@import "pretendard/dist/web/variable/pretendardvariable.css";
+@import "./reset.css";
+
+:root {
+  --ui-dark: #222;
+  --ui-border: #ffffffaa;
+  --panel-bg: #e6e6e6;
+  --hp: #ff1f1f;
+  --mp: #4d83ff;
+  --text: #fff;
+  --lv : rgb(221, 167, 17);
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  background: #111;
+}
+
+.ememyBox{
+  position: absolute;
+  top: 130px;
+  right: 30px;
+}
+
+.playerBox{
+  position: absolute;
+  bottom: 20px;
+  left: 30px; 
+}
+.game-scene {
+  width: 100vw;
+  height: calc(100vh - 200px);
+  background: url("/main_BG.png") no-repeat center/cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Stage */
+.stage-label {
+  position: absolute;
+  top: 18px;
+  left: 24px;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* Panels */
+.character-panel {
+  width: 420px;
+  height: 110px;
+  background: var(--panel-bg);
+  border-radius: 8px;
+  padding: 14px 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+
+.character-panel .name {
+  font-size: 22px;
+  font-weight: 800;
+}
+.character-panel .lv {
+  font-size: 14px;
+  margin-left: 8px;
+  color: #d91;
+}
+
+.character-panel .stat {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #222;
+}
+
+
+.bar {
+  margin-top: 6px;
+  position: relative;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bar-label {
+  font-size: 12px;
+  font-weight: 700;
+  width: 26px;
+  color: #222;
+}
+
+.bar-track {
+  flex: 1;
+  height: 16px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.hp-bar .bar-fill {
+  background: var(--hp);
+}
+
+.mp-bar .bar-fill {
+  background: var(--mp);
+}
+
+.bar-text {
+  font-size: 12px;
+  color: #222;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* Sprites */
+.character-sprite {
+  width: 400px;
+  height: 400px;
+}
+
+
+.character-sprite img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+}
+
+/* Bottom Bar */
+.bottom-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 200px;
+  background: var(--ui-dark);
+  border-top: 1px solid var(--ui-border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: var(--text);
+  padding: 18px 20px;
+  gap: 20px;
+}
+
+.gold {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  font-weight: 700;
+}
+
+/* Action buttons (left) */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-left: 40px;
+}
+
+.action-buttons button {
+  width: 120px;
+  height: 120px;
+  border: none;
+  border-radius: 12px;
+  background: #333;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+}
+
+.action-buttons button:hover {
+  transform: scale(1.03);
+  opacity: 0.8;
+}
+
+/* Skills (right) */
+.skill-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+  align-content: start;
+}
+
+.skill-slot {
+  border: 1px solid #fff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .character-panel {
+    width: 320px;
+  }
+
+  .bottom-bar {
+    grid-template-columns: 1fr;
+    height: 260px;
+  }
+
+  .action-buttons {
+    justify-content: center;
+    padding: 0;
+  }
+}
