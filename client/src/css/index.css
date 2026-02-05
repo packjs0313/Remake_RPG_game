@@ -18,22 +18,26 @@
 }
 
 .ememyBox{
-  position: absolute;
-  top: 130px;
-  right: 30px;
+  grid-column: 7/10;
+  grid-row: 4/10;
+  justify-self: center;
+  align-self: center;
 }
 
 .playerBox{
-  position: absolute;
-  bottom: 20px;
-  left: 30px; 
+  grid-column: 3/6  ;
+  grid-row: 5/11;
+  justify-self: center;
+  align-self: center;
 }
 .game-scene {
   width: 100vw;
   height: calc(100vh - 200px);
   background: url("/main_BG.png") no-repeat center/cover;
-  position: relative;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(11,1fr);
+  grid-template-rows: repeat(11,1fr);
 }
 
 /* Stage */
@@ -50,7 +54,7 @@
 
 /* Panels */
 .character-panel {
-  width: 420px;
+  width: 400px;
   height: 110px;
   background: var(--panel-bg);
   border-radius: 8px;
@@ -203,18 +207,75 @@
 }
 
 /* Mobile */
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
+  .characterBox .character-sprite{
+    width: 320px;
+    height: 320px;
+  }
   .character-panel {
     width: 320px;
   }
-
+}
+@media (max-width: 900px) {
+  .ememyBox{
+    grid-column: 8/11;
+    grid-row: 4/10;
+    justify-self: center;
+    align-self: center;
+  }
+  
+  .playerBox{
+    grid-column: 3/5;
+    grid-row: 5/11;
+    justify-self: center;
+    align-self: center;
+  }
+  .game-scene {
+    height: calc(100vh - 260px)
+  }
   .bottom-bar {
     grid-template-columns: 1fr;
     height: 260px;
   }
-
+  
   .action-buttons {
     justify-content: center;
     padding: 0;
   }
+}
+
+@media (max-width: 650px) {
+  .character-panel {
+    width: 48vw;
+    position: relative;
+    bottom: calc(-100px + 10vw)
+  }
+    .characterBox .character-sprite {
+    width: 48vw;
+  }
+  .enemy-panel{
+    float: right;
+  }
+  .game-scene {
+  grid-template-columns: repeat(5,1fr);
+  }
+    .ememyBox{
+    grid-column: 4/5;
+    grid-row: 2/8;
+  }
+  .playerBox{
+    grid-column: 2/3;
+    grid-row: 5/11;
+  }
+  .bar-text{
+    position: absolute;
+    text-align : left;
+    left: 40px;
+
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: -0.5px 0px #333, 0px 0.5px #333, 0.5px 0px #333, 0px -0.5px #333;
+  }
+
 }
