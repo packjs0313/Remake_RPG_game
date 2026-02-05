@@ -322,3 +322,37 @@
   }
 
 }
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .game-scene {
+    height: calc(100vh - 160px);
+  }
+  .bottom-bar {
+    height: 160px;
+  }
+  .character-panel {
+    width: 280px;
+    padding: 10px 12px;
+  }
+  .character-panel .name {
+    font-size: 18px;
+  }
+  .bar {
+    height: 16px;
+    margin-top: 4px;
+  }
+  .bar-track {
+    height: 12px;
+  }
+  .character-sprite {
+    width: 280px;
+    height: 280px;
+  }
+  .action-buttons button {
+    width: 70px;
+    height: 70px;
+  }
+  .skill-slot {
+    font-size: 12px;
+  }
+}
