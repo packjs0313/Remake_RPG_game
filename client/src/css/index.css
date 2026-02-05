@@ -170,6 +170,7 @@
 .action-buttons {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 40px;
   padding-left: 40px;
 }
@@ -207,7 +208,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px 16px;
-  align-content: start;
+  align-content: center;
 }
 
 .skill-slot {
@@ -222,7 +223,7 @@
 
 /* Mobile */
 @media (max-width: 1200px) {
-  .characterBox .character-sprite{
+  .character-sprite{
     width: 320px;
     height: 320px;
   }
@@ -290,10 +291,9 @@
 @media (max-width: 650px) {
   .character-panel {
     width: 48vw;
-    position: relative;
-    bottom: calc(-100px + 10vw)
   }
-    .characterBox .character-sprite {
+  .characterBox .character-sprite {
+    height: 48vw;
     width: 48vw;
   }
   .enemy-panel{
@@ -304,11 +304,11 @@
   }
     .ememyBox{
     grid-column: 4/5;
-    grid-row: 2/8;
+    grid-row: 4/10;
   }
   .playerBox{
     grid-column: 2/3;
-    grid-row: 5/11;
+    grid-row: 6/12;
   }
   .bar-text{
     position: absolute;
@@ -323,7 +323,7 @@
 
 }
 
-@media (max-width: 900px) and (orientation: landscape) {
+@media (max-height: 600px) and (orientation: landscape) {
   .game-scene {
     height: calc(100vh - 160px);
   }
@@ -332,6 +332,7 @@
   }
   .character-panel {
     width: 280px;
+    height: 80px;
     padding: 10px 12px;
   }
   .character-panel .name {
@@ -341,12 +342,12 @@
     height: 16px;
     margin-top: 4px;
   }
+  .character-sprite {
+    width: 200px;
+    height: 200px;
+  }
   .bar-track {
     height: 12px;
-  }
-  .character-sprite {
-    width: 280px;
-    height: 280px;
   }
   .action-buttons button {
     width: 70px;
