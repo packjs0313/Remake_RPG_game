@@ -1,3 +1,5 @@
+const BASE = import.meta.env.BASE_URL;
+
 export const player = {
   name: "닉네임",
   level: 1,
@@ -5,7 +7,7 @@ export const player = {
   maxHp: 100,
   mp: 100,
   maxMp: 100,
-  img: "/player.png",
+  img: `${BASE}player.png`,
 };
 
 export const enemy = {
@@ -15,5 +17,5 @@ export const enemy = {
   maxHp: 30,
   mp: 100,
   maxMp: 100,
-  img: "/enemy.png",
+  img: `${BASE}enemy.png`,
 };
