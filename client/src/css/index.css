@@ -131,7 +131,6 @@
   height: 400px;
 }
 
-
 .character-sprite img {
   width: 100%;
   height: 100%;
@@ -293,6 +292,17 @@
   .skill-slot {
     height: 50px;
   }
+  .Combat-Log{
+    position: fixed;
+    right: 0;
+    bottom: 200px;
+    width: 200px;
+    height: 120px;
+    border: none;
+    background: rgba(0,0,0,0.3);
+
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 650px) {
@@ -311,7 +321,7 @@
   }
     .ememyBox{
     grid-column: 4/5;
-    grid-row: 4/10;
+    grid-row: 3/9;
   }
   .playerBox{
     grid-column: 2/3;
@@ -338,20 +348,26 @@
     height: 110px;
   }
   .character-panel {
-    width: 280px;
-    height: 80px;
-    padding: 10px 12px;
+    width: 240px;
+    height: auto;
+    padding: 10px 15px;
   }
-  .character-panel .name {
-    font-size: 18px;
+  .character-panel .name{ 
+    font-size: 16px;
   }
-  .bar {
-    height: 16px;
+  .character-panel .lv{
+    font-size: 14px;
+  }
+  .bar{
+    height: 10px;
     margin-top: 4px;
   }
+  .bar .bar-track{
+    height: 10px;
+  }
   .character-sprite {
-    width: 180px;
-    height: 180px;
+    width: 140px;
+    height: 140px;
   }
   .bar-track {
     height: 12px;
@@ -371,5 +387,18 @@
   .gold {
     top: 5px;
     font-size: 11px;
+  }
+  .Combat-Log{
+    position: fixed;
+    right: 0;
+    bottom: 110px;
+    width: 45vw;
+    height: 15vh;
+    border: none;
+    background: rgba(0,0,0,0.3);
+
+    font-size: 11px;
+    line-height: 1rem;
+    border-radius: 4% 0 0 0 ;
   }
 }
