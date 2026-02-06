@@ -1,4 +1,4 @@
-﻿export default function BottomBar() {
+﻿export default function BottomBar({onOpenStats}) {
   return (
     <div className="bottom-bar">
       <div className="gold">소지금: 100</div>
@@ -8,7 +8,7 @@
             <img src="./skill.png" alt="스킬" />
             <span>스킬</span>
           </button>
-          <button>
+          <button onClick={onOpenStats}>
             <img src="./stats.png" alt="스탯" />
             <span>스탯</span>
           </button>
