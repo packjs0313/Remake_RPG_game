@@ -1,4 +1,4 @@
-const BASE = import.meta.env.BASE_URL;
+﻿const BASE = import.meta.env.BASE_URL;
 
 export const player = {
   name: "닉네임",
@@ -7,6 +7,7 @@ export const player = {
   maxHp: 100,
   mp: 100,
   maxMp: 100,
+  skillStat: 5,
   img: `${BASE}player.png`,
 };
 

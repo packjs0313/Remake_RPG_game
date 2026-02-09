@@ -1,6 +1,6 @@
-import "../css/StatsModal.css";
+﻿import "../css/StatsModal.css";
 
-export default function StatsModal({onCloseStats}) {
+export default function StatsModal({ onCloseStats }) {
   return (
     <div className="stats-overlay">
       <article className="stats-modal" role="dialog" aria-modal="true">
@@ -34,9 +34,7 @@ export default function StatsModal({onCloseStats}) {
           </div>
         </div>
 
-        <footer className="stats-footer">
-          남은 스킬포인트: 3
-        </footer>
+        <footer className="stats-footer">남은 스킬포인트: 3</footer>
       </article>
     </div>
   );
