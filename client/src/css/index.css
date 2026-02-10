@@ -69,17 +69,17 @@
 
 
 .character-panel .name {
-  font-size: 1.375rem;
+  font-size: 1.3rem;
   font-weight: 800;
 }
 .character-panel .lv {
-  font-size: 0.875rem;
-  margin-left: 8px;
+  font-size: 0.9rem;
+  margin-left: 0.4rem;
   color: #d91;
 }
 .character-panel .xp {
   font-size: 0.75rem;
-  margin-left: 8px;
+  font-weight: 500;
   color: #d91;
 }
 
@@ -336,7 +336,7 @@
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 650px){
   .character-panel {
     width: 48vw;
   }
@@ -350,7 +350,7 @@
   .game-scene {
   grid-template-columns: repeat(5,1fr);
   }
-    .ememyBox{
+  .ememyBox{
     grid-column: 4/5;
     grid-row: 3/9;
   }
@@ -371,7 +371,7 @@
 
 }
 
-@media (max-height: 600px) and (orientation: landscape) {
+@media (max-height: 600px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
   .game-scene {
     height: calc(100vh - 110px);
     height: calc(100dvh - 110px);
