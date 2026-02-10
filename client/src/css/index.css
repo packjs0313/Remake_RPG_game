@@ -33,11 +33,16 @@
 .game-scene {
   width: 100vw;
   height: calc(100vh - 200px);
+  height: calc(100dvh - 200px);
   background: url("/main_BG.png") no-repeat center/cover;
   overflow: hidden;
   display: grid;
   grid-template-columns: repeat(11,1fr);
   grid-template-rows: repeat(11,1fr);
+
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 /* Stage */
@@ -343,6 +348,7 @@
 @media (max-height: 600px) and (orientation: landscape) {
   .game-scene {
     height: calc(100vh - 110px);
+    height: calc(100dvh - 110px);
   }
   .bottom-bar {
     height: 110px;
