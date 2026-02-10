@@ -1,18 +1,34 @@
 ﻿import { useState } from "react";
 import CharacterPanel, { CharacterSprite } from "./components/CharacterPanel";
 import BottomBar from "./components/BottomBar";
-import { player, enemy } from "./data/mockData";
+import { enemy } from "./data/mockData";
 import StatsModal from "./components/StatsModal";
 import SkillModal from "./components/SkillModal";
+import usePlayerState from "./hooks/usePlayerState";
 
 export default function App() {
   const [isStatsOpen, setIsStatsOpen] = useState(false);
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
+  const { playerState, increaseStat } = usePlayerState();
 
   return (
+    //팝업 오픈구역
     <div className="app">
-      {isStatsOpen ? <StatsModal onCloseStats={() => setIsStatsOpen(false)} /> : null}
-      {isSkillsOpen ? <SkillModal onCloseSkills={() => setIsSkillsOpen(false)} /> : null}
+      {isStatsOpen ? (
+        <StatsModal
+          onCloseStats={() => setIsStatsOpen(false)}
+          player={playerState}
+          onIncrease={increaseStat}
+        />
+      ) : null}
+      {isSkillsOpen ? (
+        <SkillModal
+          onCloseSkills={() => setIsSkillsOpen(false)}
+          skillStat={playerState.skillStat}
+        />
+      ) : null}
+
+      {/* 게임 구역 */}
       <div className="game-scene">
         <div className="stage-label">STAGE 1</div>
 
@@ -22,10 +38,10 @@ export default function App() {
         </div>
 
         <div className="playerBox characterBox">
-          <CharacterPanel character={player} className="player-panel" />
-          <CharacterSprite character={player} className="player-sprite" />
+          <CharacterPanel character={playerState} className="player-panel" />
+          <CharacterSprite character={playerState} className="player-sprite" />
         </div>
-
+        
         <BottomBar
           onOpenStats={() => setIsStatsOpen(true)}
           onOpenSkills={() => setIsSkillsOpen(true)}

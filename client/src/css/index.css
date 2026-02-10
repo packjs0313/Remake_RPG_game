@@ -231,6 +231,27 @@
   letter-spacing: 0.02rem;
   overflow-y: scroll;
 }
+/* Scrollbar (WebKit) */
+.Combat-Log::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.Combat-Log::-webkit-scrollbar-thumb {
+  background: #3b3b3b;
+  border-radius: 999px;
+  border: 0.125rem solid #1f1f1f;
+}
+
+.Combat-Log::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 999px;
+}
+
+/* Scrollbar (Firefox) */
+.Combat-Log {
+  scrollbar-width: thin;
+  scrollbar-color: #FFF #222;
+}
 /* Mobile */
 @media (max-width: 1200px) {
   .character-sprite{
