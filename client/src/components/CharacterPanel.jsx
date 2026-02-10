@@ -5,7 +5,9 @@ export default function CharacterPanel({ character, className }) {
   return (
     <div className={`character-panel ${className || ""}`}>
       <div className="name">
-        {character.name} <span className="lv">LV.{character.level}</span>
+        {character.name} 
+        <span className="lv">LV.{character.level}</span>
+        <span className="xp">{character.xp != null ? `(${character.xp}/${character.maxXp})`: null}</span>
       </div>
 
       <div className="bar hp-bar">
