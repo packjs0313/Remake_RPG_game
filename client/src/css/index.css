@@ -1,5 +1,6 @@
 @import "pretendard/dist/web/variable/pretendardvariable.css";
 @import "./reset.css";
+@import "./monsterImg.css";
 
 :root {
   --ui-dark: #222;
@@ -8,6 +9,7 @@
   --hp: #ff1f1f;
   --mp: #4d83ff;
   --text: #fff;
+  --Black-taxt : #222;
   --lv : rgb(221, 167, 17);
 }
 
@@ -19,9 +21,10 @@
 
 .ememyBox{
   grid-column: 7/10;
-  grid-row: 4/10;
+  grid-row: 6/9;
   justify-self: center;
   align-self: center;
+  position: relative;
 }
 
 .playerBox{
@@ -29,11 +32,12 @@
   grid-row: 5/11;
   justify-self: center;
   align-self: center;
+
+  position: relative;
 }
 .game-scene {
   width: 100vw;
   height: calc(100vh - 200px);
-  height: calc(100dvh - 200px);
   background: url("/main_BG.png") no-repeat center/cover;
   overflow: hidden;
   display: grid;
@@ -49,9 +53,9 @@
 .stage-label {
   position: absolute;
   top: 18px;
-  left: 24px;
+  right: 24px;
   color: #fff;
-  font-size: 1.75rem;
+  font-size: 2.5rem;
   font-weight: 800;
   letter-spacing: 1px;
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
@@ -59,22 +63,49 @@
 
 /* Panels */
 .character-panel {
-  width: 400px;
-  height: 110px;
-  background: var(--panel-bg);
-  border-radius: 8px;
-  padding: 14px 18px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+
+  color: var(--Black-taxt);
 }
-
-
+.player-panel{
+  width: 400px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text);
+}
+.ememy-panel{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.character-panel .profile{
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border: 1px solid #000;
+  background: var(--ui-dark) url("/player-profile.png") no-repeat center/cover;
+}
+.character-information{
+  width: calc(100% - 90px);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.enemy-panel .character-information{
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .character-panel .name {
   font-size: 1.3rem;
   font-weight: 800;
 }
 .character-panel .lv {
   font-size: 0.9rem;
-  margin-left: 0.4rem;
+  margin: 0 0.4rem;
   color: #d91;
 }
 .character-panel .xp {
@@ -86,12 +117,11 @@
 .character-panel .stat {
   margin-top: 6px;
   font-size: 0.875rem;
-  color: #222;
+  color: var(--text);
 }
 
 
 .bar {
-  margin-top: 6px;
   position: relative;
   height: 20px;
   display: flex;
@@ -102,15 +132,17 @@
 .bar-label {
   font-size: 0.75rem;
   font-weight: 700;
-  width: 26px;
-  color: #222;
+  color: var(--text);
 }
 
+.enemy-panel .bar-label {
+  color: var(--Black-taxt);
+}
 .bar-track {
   flex: 1;
   height: 16px;
   background: #333;
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
   position: relative;
 }
@@ -133,6 +165,15 @@
   color: #222;
   min-width: 60px;
   text-align: right;
+
+  position: absolute;
+  text-align : left;
+  left: 30px;
+
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: -0.5px 0px #333, 0px 0.5px #333, 0.5px 0px #333, 0px -0.5px #333;
 }
 
 /* Sprites */
@@ -263,14 +304,11 @@
     width: 320px;
     height: 320px;
   }
-  .character-panel {
-    width: 320px;
-  }
 }
 @media (max-width: 900px) {
   .ememyBox{
     grid-column: 8/11;
-    grid-row: 4/10;
+    grid-row: 6/9;
     justify-self: center;
     align-self: center;
   }
@@ -291,6 +329,7 @@
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     width: 100%;
     height: 100%;
   }
@@ -308,6 +347,7 @@
     height: 100%;
     gap: 40px; 
     scroll-snap-align: start;
+    scroll-snap-stop: always;
     flex-shrink: 0;
     padding: 18px 20px;
     box-sizing: border-box;
@@ -316,6 +356,7 @@
     min-width: 100%;
     height: 100%;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
     flex-shrink: 0;
     padding: 55px 20px;
     box-sizing: border-box;
@@ -323,27 +364,34 @@
   .skill-slot {
     height: 50px;
   }
-  .Combat-Log{
-    position: fixed;
-    right: 0;
-    bottom: 200px;
-    width: 200px;
-    height: 120px;
-    border: none;
-    background: rgba(0,0,0,0.3);
 
-    font-size: 0.6875rem;
-  }
 }
 
 @media (max-width: 650px){
-  .character-panel {
+  .game-scene{
+    height: calc(100vh - 150px);
+  }
+  .stage-label {
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+  }
+  .player-panel {
+    width: 80vw;
+    left: 15px;
+    top: 35px;
+  }
+  .ememyBox{
     width: 48vw;
   }
   .characterBox .character-sprite {
     height: 48vw;
     width: 48vw;
   }
+  .enemy-panel .character-information {
+    width: 48vw;
+  }
+
   .enemy-panel{
     float: right;
   }
@@ -352,37 +400,55 @@
   }
   .ememyBox{
     grid-column: 4/5;
-    grid-row: 3/9;
+    grid-row: 7/10;
   }
   .playerBox{
     grid-column: 2/3;
-    grid-row: 6/12;
+    grid-row: 8/11;
+  } 
+  .bar-label{
+    color: var(--text);
   }
-  .bar-text{
-    position: absolute;
-    text-align : left;
-    left: 40px;
-
-    font-size: 0.625rem;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: -0.5px 0px #333, 0px 0.5px #333, 0.5px 0px #333, 0px -0.5px #333;
+  .bottom-bar{
+    height: 150px;
+    border: none;
   }
-
+  .stage-label{
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-height: 600px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
   .game-scene {
     height: calc(100vh - 110px);
-    height: calc(100dvh - 110px);
+  }
+  .stage-label {
+    font-size: 2rem;
   }
   .bottom-bar {
     height: 110px;
   }
   .character-panel {
-    width: 240px;
     height: auto;
-    padding: 10px 15px;
+  }
+  .player-panel {
+    left: 10px;
+    top: 10px;  
+  }
+  .ememyBox .character-information{
+    width: 140px
+  }
+  .enemy-panel .character-information {
+    left: 0;
+    top: -10px;
+    transform: translateX(0);
+  }
+  .character-panel .profile {
+    width: 50px;
+    height: 50px;
+  }
+  .character-information {
+    width: calc(100% - 60px);
   }
   .character-panel .name{ 
     font-size: 1rem;
@@ -432,5 +498,24 @@
     font-size: 0.6875rem;
     line-height: 1rem;
     border-radius: 4% 0 0 0 ;
+  }
+}
+@media(hover: none) and (pointer: coarse) {
+  .mobile-slider>div{
+    min-width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-width: 100%;
+  }
+  .mobile-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    height: 100%;
+  }
+  .bottom-bar {
+    display: block;
+    padding: 0;
   }
 }

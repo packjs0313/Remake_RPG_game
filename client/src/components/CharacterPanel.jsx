@@ -3,11 +3,13 @@ export default function CharacterPanel({ character, className }) {
   const mpPercent = Math.max(0, Math.min(100, (character.mp / character.maxMp) * 100));
 
   return (
-    <div className={`character-panel ${className || ""}`}>
-      <div className="name">
+    <div className={`character-panel ${className || ""} ${character.Ename ||""}`}>
+      {character.id != null ? <div className="profile"></div> : null}
+      <div className="character-information">
+              <div className="name"> 
         {character.name} 
         <span className="lv">LV.{character.level}</span>
-        <span className="xp">{character.xp != null ? `(${character.xp}/${character.maxXp})`: null}</span>
+        <span className="xp">{character.xp != null ? `[${character.xp}/${character.maxXp}]`: null}</span>
       </div>
 
       <div className="bar hp-bar">
@@ -20,17 +22,21 @@ export default function CharacterPanel({ character, className }) {
         </span>
       </div>
 
-      <div className="bar mp-bar">
-        <span className="bar-label">MP</span>
-        <div className="bar-track">
-          <div className="bar-fill" style={{ width: `${mpPercent}%` }} />
-        </div>
-        <span className="bar-text">
-          {character.mp}/{character.maxMp}
-        </span>
+      {character.id != null ?
+        <div className="bar mp-bar">
+          <span className="bar-label">MP</span>
+          <div className="bar-track">
+            <div className="bar-fill" style={{ width: `${mpPercent}%` }} />
+          </div>
+          <span className="bar-text">
+            {character.mp}/{character.maxMp}
+          </span>
+        </div> : null
+      }
       </div>
     </div>
   );
+
 }
 
 export function CharacterSprite({ character, className }) {
