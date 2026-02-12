@@ -11,6 +11,7 @@
   --text: #fff;
   --Black-taxt : #222;
   --lv : rgb(221, 167, 17);
+  --gold:#fac827;
 }
 
 .app {
@@ -29,7 +30,7 @@
 
 .playerBox{
   grid-column: 3/6  ;
-  grid-row: 5/11;
+  grid-row: 5/10;
   justify-self: center;
   align-self: center;
 
@@ -55,7 +56,7 @@
   top: 18px;
   right: 24px;
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
   letter-spacing: 1px;
   text-shadow: 0 2px 6px rgba(0,0,0,0.5);
@@ -63,7 +64,6 @@
 
 /* Panels */
 .character-panel {
-
   color: var(--Black-taxt);
 }
 .player-panel{
@@ -74,11 +74,13 @@
   display: flex;
   justify-content: space-between;
   color: var(--text);
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 .ememy-panel{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 .character-panel .profile{
   display: inline-block;
@@ -210,10 +212,20 @@
 }
 
 .gold {
-  position: absolute;
-  top: 10px;
+  position: fixed;
+  top: 92px;
   left: 14px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold) ;
+  
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+.gold img{
+  width: 20px;
+  height: 20px;
 }
 
 /* Action buttons (left) */
@@ -370,6 +382,10 @@
 @media (max-width: 650px){
   .game-scene{
     height: calc(100vh - 150px);
+  }
+  .gold {
+    position: fixed;
+    top: 107px;
   }
   .stage-label {
     top: 10px;

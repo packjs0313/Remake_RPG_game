@@ -1,7 +1,6 @@
 ﻿export default function BottomBar({ onOpenStats, onOpenSkills }) {
   return (
     <div className="bottom-bar">
-      <div className="gold">소지금: 100</div>
       <div className="mobile-slider">
         <div className="action-buttons">
           <button onClick={onOpenSkills}>

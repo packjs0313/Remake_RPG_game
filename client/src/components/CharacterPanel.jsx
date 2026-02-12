@@ -4,9 +4,10 @@ export default function CharacterPanel({ character, className }) {
 
   return (
     <div className={`character-panel ${className || ""} ${character.Ename ||""}`}>
+      {character.gold != null ? <div className="gold"><img src="./coin.png" alt="소지금"/>{character.gold}G</div> : null}
       {character.id != null ? <div className="profile"></div> : null}
       <div className="character-information">
-              <div className="name"> 
+      <div className="name"> 
         {character.name} 
         <span className="lv">LV.{character.level}</span>
         <span className="xp">{character.xp != null ? `[${character.xp}/${character.maxXp}]`: null}</span>

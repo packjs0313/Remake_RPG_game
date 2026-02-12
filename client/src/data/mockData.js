@@ -6,7 +6,7 @@ export const player = {
   level: 1,
   xp : 40,
   maxXp : 100,
-  gold : 100,
+  gold : 1020,
   img: `${BASE}player.png`,
 };
 export const playerStats = {
