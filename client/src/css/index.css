@@ -2,18 +2,6 @@
 @import "./reset.css";
 @import "./monsterImg.css";
 
-:root {
-  --ui-dark: #222;
-  --ui-border: #ffffffaa;
-  --panel-bg: #e6e6e6;
-  --hp: #ff1f1f;
-  --mp: #4d83ff;
-  --text: #fff;
-  --Black-taxt : #222;
-  --lv : rgb(221, 167, 17);
-  --gold:#fac827;
-}
-
 .app {
   width: 100%;
   height: 100%;
@@ -224,6 +212,7 @@
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 .gold img{
+  margin-right: 5px;
   width: 20px;
   height: 20px;
 }
@@ -279,6 +268,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: transform 0.2s;
+}
+.skill-slot:hover{
+  transform: scale(103%);
 }
 /* Combat-Log */
 .Combat-Log{

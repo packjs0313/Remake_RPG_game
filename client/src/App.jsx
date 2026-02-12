@@ -4,12 +4,14 @@ import BottomBar from "./components/BottomBar";
 import { enemy } from "./data/mockData";
 import StatsModal from "./components/StatsModal";
 import SkillModal from "./components/SkillModal";
-import usePlayerState from "./hooks/usePlayerState";
+import usePlayerState from "./hooks/usePlayerStateHook";
+import useBuySkill from "./hooks/buySkillHook";
 
 export default function App() {
   const [isStatsOpen, setIsStatsOpen] = useState(false);
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
-  const { playerState, increaseStat } = usePlayerState();
+  const { playerState, increaseStat, setPlayerState } = usePlayerState();
+  const { buySkill, userSkills } = useBuySkill(playerState, setPlayerState);
 
   return (
     //팝업 오픈구역
@@ -23,8 +25,11 @@ export default function App() {
       ) : null}
       {isSkillsOpen ? (
         <SkillModal
+          player={playerState}
           onCloseSkills={() => setIsSkillsOpen(false)}
           skillStat={playerState.skillStat}
+          onBuy={buySkill}
+          ownedSkillIds={userSkills.ownedSkillIds}
         />
       ) : null}
 

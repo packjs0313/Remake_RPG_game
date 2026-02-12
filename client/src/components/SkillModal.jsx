@@ -2,7 +2,13 @@
 import SkillCard from "./SkillCard";
 import { skills } from "../data/skillData";
 
-export default function SkillModal({ onCloseSkills, skillStat = 0 }) {
+export default function SkillModal({
+  onCloseSkills,
+  skillStat = 0,
+  player,
+  onBuy,
+  ownedSkillIds = [],
+}) {
   const stats = { skillStat };
 
   return (
@@ -18,6 +24,8 @@ export default function SkillModal({ onCloseSkills, skillStat = 0 }) {
         <div className="skills-list">
           {skills.map((skill) => {
             const damage = skill.formulaCalc(stats);
+            const isHeldSkill = ownedSkillIds.includes(skill.id);
+
             return (
               <SkillCard
                 key={skill.id}
@@ -27,12 +35,19 @@ export default function SkillModal({ onCloseSkills, skillStat = 0 }) {
                 price={`${skill.price}G`}
                 damage={damage}
                 formula={skill.formulaText}
+                isHeldSkill={isHeldSkill}
+                onAction={() => {
+                  if (!isHeldSkill) onBuy(skill.id);
+                }}
               />
             );
           })}
         </div>
 
-        <footer className="skills-footer">소지금: 100G</footer>
+        <footer className="skills-footer">
+          <img src="./coin.png" alt="소지금" />
+          {player.gold}G
+        </footer>
       </article>
     </div>
   );

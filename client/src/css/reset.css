@@ -14,4 +14,13 @@ html, body, #root, .app {
 
 :root {
     font-family: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  --ui-dark: #222;
+  --ui-border: #ffffffaa;
+  --panel-bg: #e6e6e6;
+  --hp: #ff1f1f;
+  --mp: #4d83ff;
+  --text: #fff;
+  --Black-taxt : #222;
+  --lv : rgb(221, 167, 17);
+  --gold:#fac827;
 }

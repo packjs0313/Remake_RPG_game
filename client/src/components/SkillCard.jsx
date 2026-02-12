@@ -1,4 +1,13 @@
-﻿export default function SkillCard({ name, mp, desc, price, damage, formula }) {
+﻿export default function SkillCard({
+  name,
+  mp,
+  desc,
+  price,
+  damage,
+  formula,
+  isHeldSkill,
+  onAction,
+}) {
   return (
     <div className="skill-card">
       <div className="skill-title">
@@ -14,7 +23,9 @@
           <span className="formula-tooltip">{formula}</span>
         </span>
       </div>
-      <button className="buy">스킬 구매</button>
+      <button className="buy" onClick={onAction}>
+        {isHeldSkill ? "스킬 장착" : "스킬 구매"}
+      </button>
     </div>
   );
 }
