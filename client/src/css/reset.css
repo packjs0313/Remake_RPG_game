@@ -1,26 +1,29 @@
 @import "pretendard/dist/web/variable/pretendardvariable.css";
 
-*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
-html, body, #root, .app {
-    height: 100%;
-    font-family: "Pretendard Variable", Pretendard, system-ui, sans-serif;
-} 
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  font-family: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+}
 
 :root {
-    font-family: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+  font-family: "Pretendard Variable", Pretendard, system-ui, sans-serif;
   --ui-dark: #222;
   --ui-border: #ffffffaa;
   --panel-bg: #e6e6e6;
   --hp: #ff1f1f;
   --mp: #4d83ff;
   --text: #fff;
-  --Black-taxt : #222;
-  --lv : rgb(221, 167, 17);
-  --gold:#fac827;
+  --Black-taxt: #222;
+  --lv: rgb(221, 167, 17);
+  --gold: #fac827;
 }

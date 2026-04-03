@@ -1,4 +1,14 @@
-﻿export const skills = [
+// 스킬 원본 데이터
+// 여기 있는 걸 스킬창에서 그대로 씀
+//
+// id: 내부 식별용
+// name: 화면에 보여줄 이름
+// mp: 소모 mp
+// desc: 설명
+// price: 가격
+// formulaCalc: 스킬스탯 받아서 값 계산
+// formulaText: 계산식 설명용 문자열
+export const skills = [
   {
     id: "fireball",
     name: "파이어볼",

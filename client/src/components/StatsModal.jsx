@@ -1,12 +1,20 @@
-﻿import "../css/StatsModal.css";
+import "../css/StatsModal.css";
 
-export default function StatsModal({ onCloseStats, player, onIncrease }) {
+export default function StatsModal({
+  onCloseStats, // onCloseStats : 닫기 버튼 함수
+  player, // player : App의 playerState
+  onIncrease, // onIncrease : 스탯 올리는 함수
+}) {
   return (
     <div className="stats-overlay">
       <article className="stats-modal" role="dialog" aria-modal="true">
         <header className="stats-header">
           <h2>스탯</h2>
-          <button className="stats-close" aria-label="닫기" onClick={onCloseStats}>
+          <button
+            className="stats-close"
+            aria-label="닫기"
+            onClick={onCloseStats}
+          >
             X
           </button>
         </header>
@@ -15,26 +23,36 @@ export default function StatsModal({ onCloseStats, player, onIncrease }) {
           <div className="stats-row">
             <span className="label">HP</span>
             <span className="value">{player.maxHp}</span>
-            <button className="add" onClick={() => onIncrease("hp")}>+</button>
+            <button className="add" onClick={() => onIncrease("hp")}>
+              +
+            </button>
           </div>
           <div className="stats-row">
             <span className="label">MP</span>
             <span className="value">{player.maxMp}</span>
-            <button className="add" onClick={() => onIncrease("mp")}>+</button>
+            <button className="add" onClick={() => onIncrease("mp")}>
+              +
+            </button>
           </div>
           <div className="stats-row">
             <span className="label">공격력</span>
             <span className="value">{player.atk}</span>
-            <button className="add" onClick={() => onIncrease("atk")}>+</button>
+            <button className="add" onClick={() => onIncrease("atk")}>
+              +
+            </button>
           </div>
           <div className="stats-row">
             <span className="label">스킬스탯</span>
             <span className="value">{player.skillStat}</span>
-            <button className="add" onClick={() => onIncrease("skillStat")}>+</button>
+            <button className="add" onClick={() => onIncrease("skillStat")}>
+              +
+            </button>
           </div>
         </div>
 
-        <footer className="stats-footer">남은 스킬포인트: {player.statPoints}</footer>
+        <footer className="stats-footer">
+          남은 스킬포인트: {player.statPoints}
+        </footer>
       </article>
     </div>
   );

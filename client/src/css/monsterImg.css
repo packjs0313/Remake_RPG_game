@@ -1,14 +1,14 @@
-.enemy-panel.slime .character-information{
-    position: absolute;
-    top: 20px;
+.enemy-panel.slime .character-information {
+  position: absolute;
+  top: 20px;
 }
-@media (max-width: 650px){
-    .enemy-panel.slime .character-information{
-    top:  -20px;
-    }
+@media (max-width: 650px) {
+  .enemy-panel.slime .character-information {
+    top: -20px;
+  }
 }
 @media (max-height: 600px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
-    .enemy-panel.slime .character-information{
-        top:  -10px;
-    }
+  .enemy-panel.slime .character-information {
+    top: -10px;
+  }
 }

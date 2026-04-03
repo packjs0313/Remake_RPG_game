@@ -1,30 +1,34 @@
-﻿import "../css/SkillModal.css";
+import "../css/SkillModal.css";
 import SkillCard from "./SkillCard";
 import { skills } from "../data/skillData";
 
 export default function SkillModal({
-  onCloseSkills,
-  skillStat = 0,
-  player,
-  onBuy,
-  ownedSkillIds = [],
+  onCloseSkills, // onCloseSkills : 닫기 버튼 함수
+  skillStat = 0, // skillStat : 현재 플레이어 스킬스탯
+  player, // player : 현재 플레이어 상태
+  onBuy, // onBuy : 스킬 구매 함수
+  ownedSkillIds = [], // ownedSkillIds : 이미 산 스킬 id 목록
 }) {
-  const stats = { skillStat };
+  const stats = { skillStat }; // stats : formulaCalc에 넘길 계산용 객체
 
   return (
     <div className="skills-overlay">
       <article className="skills-modal" role="dialog" aria-modal="true">
         <header className="skills-header">
           <h2>스킬</h2>
-          <button className="skills-close" aria-label="닫기" onClick={onCloseSkills}>
+          <button
+            className="skills-close"
+            aria-label="닫기"
+            onClick={onCloseSkills}
+          >
             X
           </button>
         </header>
 
         <div className="skills-list">
           {skills.map((skill) => {
-            const damage = skill.formulaCalc(stats);
-            const isHeldSkill = ownedSkillIds.includes(skill.id);
+            const damage = skill.formulaCalc(stats); // damage : 계산식으로 나온 예상 데미지
+            const isHeldSkill = ownedSkillIds.includes(skill.id); // isHeldSkill : 이미 산 스킬인지 여부
 
             return (
               <SkillCard
