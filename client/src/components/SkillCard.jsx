@@ -26,7 +26,7 @@ export default function SkillCard({
       </div>
 
       <button className="buy" onClick={onAction}>
-        {isHeldSkill ? "스킬 장착" : "스킬 구매"}
+        {isHeldSkill ? "스킬 선택" : "스킬 구매"}
       </button>
     </div>
   );
