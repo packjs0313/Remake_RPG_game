@@ -3,6 +3,7 @@ import {
   player as initialPlayer, // initialPlayer : mockData에 있는 플레이어 기본 정보
   playerStats as initialPlayerStats, // initialPlayerStats : mockData에 있는 플레이어 전투 스탯
 } from "../data/mockData";
+import { applyHpChange } from "../utils/attack_and_heal"; // applyHpChange : setter에 바로 hp 변화 적용하는 공용 함수
 
 export default function usePlayerState() {
   const [playerState, setPlayerState] = useState({
@@ -32,9 +33,14 @@ export default function usePlayerState() {
     });
   }; // key : 어떤 스탯 올릴지 구분하는 값
 
+  const takePlayerDamage = (damage) => {
+    applyHpChange(setPlayerState, damage);
+  }; // damage : 플레이어 hp에서 깎을 데미지 값
+
   return {
     playerState, // playerState : 플레이어 현재 상태
     increaseStat, // increaseStat : hp/mp/atk/skillStat 올리는 함수
     setPlayerState, // setPlayerState : 플레이어 상태 직접 수정할 때 쓰는 setter
+    takePlayerDamage, // takePlayerDamage : 플레이어 체력 깎는 함수
   };
 }

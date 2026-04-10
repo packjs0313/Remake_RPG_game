@@ -2,9 +2,15 @@ export default function CharacterPanel({
   character, // character : 플레이어나 적 데이터 객체
   className, // className : App에서 내려주는 추가 클래스명
 }) {
-  const hpPercent = Math.max(0,Math.min(100, (character.hp / character.maxHp) * 100),); // hpPercent : hp 바 길이 퍼센트
+  const hpPercent = Math.max(
+    0,
+    Math.min(100, (character.hp / character.maxHp) * 100),
+  ); // hpPercent : hp 바 길이 퍼센트
 
-  const mpPercent = Math.max(0,Math.min(100, (character.mp / character.maxMp) * 100),); // mpPercent : mp 바 길이 퍼센트
+  const mpPercent = Math.max(
+    0,
+    Math.min(100, (character.mp / character.maxMp) * 100),
+  ); // mpPercent : mp 바 길이 퍼센트
 
   return (
     <div
@@ -57,9 +63,10 @@ export default function CharacterPanel({
 export function CharacterSprite({
   character, // character : 이미지에 쓸 캐릭터 데이터
   className, // className : App에서 내려주는 추가 클래스명
+  onClick, // onClick : 캐릭터 클릭 이벤트 함수
 }) {
   return (
-    <div className={`character-sprite ${className || ""}`}>
+    <div className={`character-sprite ${className || ""}`} onClick={onClick}>
       <img src={character.img} alt={character.name} />
     </div>
   );

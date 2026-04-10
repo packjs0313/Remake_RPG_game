@@ -189,6 +189,10 @@
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
 }
 
+.enemy-sprite {
+  cursor: pointer;
+}
+
 /* Bottom Bar */
 .bottom-bar {
   position: fixed;

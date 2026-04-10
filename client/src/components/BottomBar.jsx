@@ -10,6 +10,7 @@ export default function BottomBar({
   equippedSkillIds = [], // equippedSkillIds : 현재 슬롯에 장착된 스킬 id 목록
   isEquipSelecting = false, // isEquipSelecting : 슬롯 선택 모드 여부
   onSelectSlot, // onSelectSlot : 슬롯 클릭 함수
+  combatLogs = [], // combatLogs : 전투 로그 목록
 }) {
   return (
     <div className={`bottom-bar ${isEquipSelecting ? "is-equip-selecting" : ""}`}>
@@ -41,19 +42,11 @@ export default function BottomBar({
       </div>
 
       <div className="Combat-Log">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
-          rerum veniam quod voluptatum deleniti laudantium quis ipsa aperiam non
-          velit quasi esse aut error tempora odio quae nulla iusto? Vero tenetur
-          eveniet maiores dolorum. Sint adipisci facilis quia, in illo
-          consequatur aliquid culpa perspiciatis, fugit neque ab accusamus
-          ratione itaque voluptates recusandae nemo amet, placeat est vitae rem
-          qui? Assumenda ex veritatis iure nemo quis accusamus vero voluptate
-          recusandae explicabo, magnam praesentium accusantium magni eveniet
-          voluptas nulla, harum vitae amet! Beatae obcaecati repudiandae magnam
-          ipsa autem at dignissimos fugit in nulla saepe. Exercitationem
-          suscipit perspiciatis deserunt, cupiditate non accusantium eligendi.
-        </p>
+        {combatLogs.length > 0 ? (
+          combatLogs.map((log, index) => <p key={`${log}-${index}`}>{log}</p>)
+        ) : (
+          <p>전투 로그가 여기에 표시됨.</p>
+        )}
       </div>
     </div>
   );
