@@ -8,7 +8,7 @@
   background: #111;
 }
 
-.ememyBox {
+.enemyBox {
   grid-column: 7/10;
   grid-row: 6/9;
   justify-self: center;
@@ -71,7 +71,8 @@
   color: var(--text);
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
-.ememy-panel {
+.enemy-panel {
+  width: 320px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -190,7 +191,7 @@
 }
 
 .enemy-sprite {
-  cursor: pointer;
+  cursor: url("/cuser_cursor.png") 8 8, pointer;
 }
 
 /* Bottom Bar */
@@ -357,7 +358,7 @@
   }
 }
 @media (max-width: 900px) {
-  .ememyBox {
+  .enemyBox {
     grid-column: 8/11;
     grid-row: 6/9;
     justify-self: center;
@@ -435,7 +436,7 @@
     left: 15px;
     top: 35px;
   }
-  .ememyBox {
+  .enemyBox {
     width: 48vw;
   }
   .characterBox .character-sprite {
@@ -452,7 +453,7 @@
   .game-scene {
     grid-template-columns: repeat(5, 1fr);
   }
-  .ememyBox {
+  .enemyBox {
     grid-column: 4/5;
     grid-row: 7/10;
   }
@@ -489,7 +490,7 @@
     left: 10px;
     top: 10px;
   }
-  .ememyBox .character-information {
+  .enemyBox .character-information {
     width: 140px;
   }
   .enemy-panel .character-information {
