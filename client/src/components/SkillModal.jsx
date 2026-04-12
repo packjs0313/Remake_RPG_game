@@ -7,10 +7,10 @@ export default function SkillModal({
   skillStat = 0, // skillStat : 현재 플레이어 스킬스탯
   player, // player : 현재 플레이어 상태
   onBuy, // onBuy : 스킬 구매 함수
-  onSelectSkill, // onSelectSkill : 장착할 스킬 고르는 함수
+  onSelectSkill, // onSelectSkill : 장착할 스킬 선택 함수
   ownedSkillIds = [], // ownedSkillIds : 이미 산 스킬 id 목록
 }) {
-  const stats = { skillStat }; // stats : formulaCalc에 넘길 계산용 객체
+  const stats = { skillStat }; // stats : 계산식에 넘길 객체
 
   return (
     <div className="skills-overlay">
@@ -57,4 +57,4 @@ export default function SkillModal({
       </article>
     </div>
   );
-} //
+}

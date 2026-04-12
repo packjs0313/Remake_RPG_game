@@ -3,11 +3,11 @@ export default function CharacterPanel({
   className, // className : App에서 내려주는 추가 클래스명
 }) {
   const hpPercent = Math.max(0, Math.min(100, (character.hp / character.maxHp) * 100)); // hpPercent : hp 바 길이 퍼센트
-
   const mpPercent = Math.max(0, Math.min(100, (character.mp / character.maxMp) * 100)); // mpPercent : mp 바 길이 퍼센트
 
   return (
     <div className={`character-panel ${className || ""} ${character.Ename || ""}`}>
+      {/* gold : 플레이어만 있으니까 있을 때만 출력 */}
       {character.gold != null ? (
         <div className="gold">
           <img src="./coin.png" alt="골드" />
@@ -15,13 +15,18 @@ export default function CharacterPanel({
         </div>
       ) : null}
 
+      {/* id : 플레이어만 있으니까 프로필 칸도 조건부 출력 */}
       {character.id != null ? <div className="profile"></div> : null}
 
       <div className="character-information">
         <div className="name">
           {character.name}
           <span className="lv">LV.{character.level}</span>
-          <span className="xp">{character.xp != null ? `[${character.xp}/${character.maxXp}]` : null}</span>
+
+          {/* xp : 플레이어만 있어서 있을 때만 출력 */}
+          <span className="xp">
+            {character.xp != null ? `[${character.xp}/${character.maxXp}]` : null}
+          </span>
         </div>
 
         <div className="bar hp-bar">
@@ -34,6 +39,7 @@ export default function CharacterPanel({
           </span>
         </div>
 
+        {/* mp : 적은 없어서 플레이어일 때만 출력 */}
         {character.id != null ? (
           <div className="bar mp-bar">
             <span className="bar-label">MP</span>

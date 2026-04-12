@@ -1,15 +1,15 @@
 import { useState } from "react";
 import {
-  player as initialPlayer, // initialPlayer : mockData에 있는 플레이어 기본 정보
-  playerStats as initialPlayerStats, // initialPlayerStats : mockData에 있는 플레이어 전투 스탯
+  player as initialPlayer, // initialPlayer : 플레이어 기본 정보
+  playerStats as initialPlayerStats, // initialPlayerStats : 플레이어 전투 스탯
 } from "../data/mockData";
-import { applyHpChange } from "../utils/attack_and_heal"; // applyHpChange : setter에 바로 hp 변화 적용하는 공용 함수
+import { applyHpChange } from "../utils/attack_and_heal"; // applyHpChange : hp 변화 적용 공용 함수
 
 export default function usePlayerState() {
   const [playerState, setPlayerState] = useState({
     ...initialPlayer, // initialPlayer : 이름, 레벨, 골드, 이미지 같은 기본값
     ...initialPlayerStats, // initialPlayerStats : hp, mp, atk 같은 전투 스탯
-  }); // playerState : 기본 정보 + 스탯 합친 현재 플레이어 상태
+  }); // playerState : 기본 정보 + 전투 스탯 합친 현재 플레이어 상태
 
   const increaseStat = (key) => {
     setPlayerState((prev) => {
@@ -35,12 +35,12 @@ export default function usePlayerState() {
 
   const takePlayerDamage = (damage) => {
     applyHpChange(setPlayerState, damage);
-  }; // damage : 플레이어 hp에서 깎을 데미지 값
+  }; // damage : 플레이어 hp에서 깎을 값
 
   return {
-    playerState, // playerState : 플레이어 현재 상태
-    increaseStat, // increaseStat : hp/mp/atk/skillStat 올리는 함수
-    setPlayerState, // setPlayerState : 플레이어 상태 직접 수정할 때 쓰는 setter
+    playerState, // playerState : 현재 플레이어 상태
+    increaseStat, // increaseStat : 스탯 증가 함수
+    setPlayerState, // setPlayerState : 상태 직접 수정용 setter
     takePlayerDamage, // takePlayerDamage : 플레이어 체력 깎는 함수
   };
 }
