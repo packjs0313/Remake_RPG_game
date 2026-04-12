@@ -1,8 +1,6 @@
 import { skills } from "../data/skillData";
 
-const skillNameById = Object.fromEntries(
-  skills.map((skill) => [skill.id, `${skill.name} (-${skill.mp}MP)`]),
-);
+const skillNameById = Object.fromEntries(skills.map((skill) => [skill.id, `${skill.name} (-${skill.mp}MP)`]));
 
 export default function BottomBar({
   onOpenStats, // onOpenStats : 스탯창 여는 함수
@@ -35,18 +33,14 @@ export default function BottomBar({
               onClick={() => onSelectSlot?.(index)}
               disabled={!isEquipSelecting}
             >
-              {skillId ? skillNameById[skillId] ?? "알 수 없는 스킬" : "스킬없음 (-MP)"}
+              {skillId ? (skillNameById[skillId] ?? "알 수 없는 스킬") : "스킬없음 (-MP)"}
             </button>
           ))}
         </div>
       </div>
 
       <div className="Combat-Log">
-        {combatLogs.length > 0 ? (
-          combatLogs.map((log, index) => <p key={`${log}-${index}`}>{log}</p>)
-        ) : (
-          <p>전투 로그가 여기에 표시됨.</p>
-        )}
+        {combatLogs.length > 0 ? combatLogs.map((log, index) => <p key={`${log}-${index}`}>{log}</p>) : <p>전투 로그가 여기에 표시됨.</p>}
       </div>
     </div>
   );

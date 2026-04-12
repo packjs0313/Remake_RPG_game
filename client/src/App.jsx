@@ -16,14 +16,10 @@ export default function App() {
   const { playerState, increaseStat, setPlayerState } = usePlayerState();
   const { enemyState, takeEnemyDamage } = useEnemyState();
 
-  const {
-    buySkill,
-    userSkills,
-    pendingEquipSkillId,
-    beginEquipSelection,
-    equipSkillToSlot,
-    cancelEquipSelection,
-  } = useUserSkills(playerState, setPlayerState);
+  const { buySkill, userSkills, pendingEquipSkillId, beginEquipSelection, equipSkillToSlot, cancelEquipSelection } = useUserSkills(
+    playerState,
+    setPlayerState
+  );
 
   const handleSelectSkill = (skillId) => {
     beginEquipSelection(skillId);
@@ -35,24 +31,14 @@ export default function App() {
 
     takeEnemyDamage(playerState.atk);
 
-    const nextLog = createDamageLog(
-      playerState.name,
-      enemyState.name,
-      playerState.atk,
-    );
+    const nextLog = createDamageLog(playerState.name, enemyState.name, playerState.atk);
 
     setCombatLogs((prev) => prependCombatLog(prev, nextLog));
   };
 
   return (
     <div className="app">
-      {isStatsOpen ? (
-        <StatsModal
-          onCloseStats={() => setIsStatsOpen(false)}
-          player={playerState}
-          onIncrease={increaseStat}
-        />
-      ) : null}
+      {isStatsOpen ? <StatsModal onCloseStats={() => setIsStatsOpen(false)} player={playerState} onIncrease={increaseStat} /> : null}
 
       {isSkillsOpen ? (
         <SkillModal
@@ -67,23 +53,14 @@ export default function App() {
 
       <div className="game-scene">
         {pendingEquipSkillId ? (
-          <button
-            type="button"
-            className="equip-selection-overlay"
-            aria-label="스킬 선택 취소"
-            onClick={cancelEquipSelection}
-          />
+          <button type="button" className="equip-selection-overlay" aria-label="스킬 선택 취소" onClick={cancelEquipSelection} />
         ) : null}
 
         <div className="stage-label">STAGE 1</div>
 
         <div className="enemyBox characterBox">
           <CharacterPanel character={enemyState} className="enemy-panel" />
-          <CharacterSprite
-            character={enemyState}
-            className="enemy-sprite"
-            onClick={handleEnemyClick}
-          />
+          <CharacterSprite character={enemyState} className="enemy-sprite" onClick={handleEnemyClick} />
         </div>
 
         <div className="playerBox characterBox">

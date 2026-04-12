@@ -4,7 +4,7 @@ import { initialSkillsByUserId as canUseSkill } from "../data/useSkillsData"; //
 
 export default function useUserSkills(
   playerState, // playerState : 현재 플레이어 상태
-  setPlayerState, // setPlayerState : 플레이어 상태 수정 함수
+  setPlayerState // setPlayerState : 플레이어 상태 수정 함수
 ) {
   const [anySkills, setAnySkills] = useState(skills); // anySkills : 실제 상점에서 보여줄 전체 스킬 목록
   const [canUseSkills, setCanUseSkill] = useState(canUseSkill); // canUseSkills : 유저별 보유/장착 스킬 상태 전체

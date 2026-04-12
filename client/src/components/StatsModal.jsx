@@ -10,11 +10,7 @@ export default function StatsModal({
       <article className="stats-modal" role="dialog" aria-modal="true">
         <header className="stats-header">
           <h2>스탯</h2>
-          <button
-            className="stats-close"
-            aria-label="닫기"
-            onClick={onCloseStats}
-          >
+          <button className="stats-close" aria-label="닫기" onClick={onCloseStats}>
             X
           </button>
         </header>
@@ -50,9 +46,7 @@ export default function StatsModal({
           </div>
         </div>
 
-        <footer className="stats-footer">
-          남은 스킬포인트: {player.statPoints}
-        </footer>
+        <footer className="stats-footer">남은 스킬포인트: {player.statPoints}</footer>
       </article>
     </div>
   );

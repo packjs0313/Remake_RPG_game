@@ -8,7 +8,6 @@ export default function equipSkill(equipSkillId) {
   const [anySkills, setAnySkills] = useState(skills);
   const [canUseSkills, setCanUseSkill] = useState(canUseSkill);
 
-  
   // 나중에 장착 로직 붙일 때 쓸 값
   return { equipSkillId, anySkills, setAnySkills, canUseSkills, setCanUseSkill };
 }

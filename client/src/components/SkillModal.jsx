@@ -17,11 +17,7 @@ export default function SkillModal({
       <article className="skills-modal" role="dialog" aria-modal="true">
         <header className="skills-header">
           <h2>스킬</h2>
-          <button
-            className="skills-close"
-            aria-label="닫기"
-            onClick={onCloseSkills}
-          >
+          <button className="skills-close" aria-label="닫기" onClick={onCloseSkills}>
             X
           </button>
         </header>
@@ -61,4 +57,4 @@ export default function SkillModal({
       </article>
     </div>
   );
-}//  
+} //

@@ -191,7 +191,9 @@
 }
 
 .enemy-sprite {
-  cursor: url("/cuser_cursor.png") 8 8, pointer;
+  cursor:
+    url("/cuser_cursor.png") 8 8,
+    pointer;
 }
 
 /* Bottom Bar */
